@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b206fmnkbadey"
-path="res://.godot/imported/Basic Charakter Spritesheet.png-0e8a462833dcb2f143481c1c626d2890.ctex"
+uid="uid://oill8hfxlv4"
+path="res://.godot/imported/TX Tileset Grass.png-025db4c27fa3754abaa5c5816735163c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/Basic Charakter Spritesheet.png"
-dest_files=["res://.godot/imported/Basic Charakter Spritesheet.png-0e8a462833dcb2f143481c1c626d2890.ctex"]
+source_file="res://assets/TX Tileset Grass.png"
+dest_files=["res://.godot/imported/TX Tileset Grass.png-025db4c27fa3754abaa5c5816735163c.ctex"]
 
 [params]
 
