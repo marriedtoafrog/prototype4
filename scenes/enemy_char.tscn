@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://6srg38y5x42o"]
+[gd_scene load_steps=16 format=3 uid="uid://dg8fpb3egomek"]
 
 [ext_resource type="Texture2D" uid="uid://ct3oahtjs4s8c" path="res://assets/momo_idle_shadow.png" id="1_u6s2h"]
 
@@ -98,6 +98,8 @@ animations = [{
 size = Vector2(24, 20)
 
 [node name="enemy char" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 
 [node name="sprite 2d" type="AnimatedSprite2D" parent="."]
 position = Vector2(154, -121)
@@ -109,3 +111,10 @@ frame_progress = 0.570583
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(154, -109)
 shape = SubResource("RectangleShape2D_wxwxh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true

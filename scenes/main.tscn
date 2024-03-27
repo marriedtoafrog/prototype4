@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ccxwiqda5qa2f"]
+[gd_scene load_steps=26 format=3 uid="uid://ccxwiqda5qa2f"]
 
 [ext_resource type="Texture2D" uid="uid://oill8hfxlv4" path="res://assets/TX Tileset Grass.png" id="1_q0002"]
 [ext_resource type="Texture2D" uid="uid://l0xe4t7v8hg1" path="res://assets/TX Tileset Stone Ground.png" id="2_4oikp"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://ccpdxkkounrut" path="res://assets/TX Plant.png" id="6_ttpxa"]
 [ext_resource type="Texture2D" uid="uid://dcjnihfiewuvu" path="res://assets/TX Shadow Plant.png" id="7_rs6gg"]
 [ext_resource type="PackedScene" uid="uid://yc1p7usl717l" path="res://scenes/main_character.tscn" id="8_ut6n4"]
-[ext_resource type="PackedScene" path="res://scenes/enemy_char.tscn" id="9_eq4lr"]
+[ext_resource type="PackedScene" uid="uid://dg8fpb3egomek" path="res://scenes/enemy_char.tscn" id="9_eq4lr"]
+[ext_resource type="Script" path="res://scenes/enemy_char.gd" id="10_gedt6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5hkv"]
 texture = ExtResource("1_q0002")
@@ -5131,10 +5132,9 @@ sources/8 = SubResource("TileSetAtlasSource_5vl4a")
 sources/9 = SubResource("TileSetAtlasSource_qflva")
 sources/10 = SubResource("TileSetAtlasSource_pvfx3")
 
-[node name="Node2D" type="Node2D"]
+[node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
 tile_set = SubResource("TileSet_mtlhh")
 rendering_quadrant_size = 32
 format = 2
@@ -5176,4 +5176,7 @@ layer_4/tile_data = PackedInt32Array()
 [node name="main character" parent="." instance=ExtResource("8_ut6n4")]
 position = Vector2(-6, -1)
 
-[node name="enemy char" parent="." instance=ExtResource("9_eq4lr")]
+[node name="enemy char" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_eq4lr")]
+motion_mode = 1
+script = ExtResource("10_gedt6")
+player = NodePath("../main character")
