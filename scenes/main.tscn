@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccpdxkkounrut" path="res://assets/TX Plant.png" id="6_ttpxa"]
 [ext_resource type="Texture2D" uid="uid://dcjnihfiewuvu" path="res://assets/TX Shadow Plant.png" id="7_rs6gg"]
 [ext_resource type="PackedScene" uid="uid://yc1p7usl717l" path="res://scenes/main_character.tscn" id="8_ut6n4"]
-[ext_resource type="PackedScene" path="res://scenes/enemy_char.tscn" id="9_eq4lr"]
+[ext_resource type="PackedScene" uid="uid://6srg38y5x42o" path="res://scenes/enemy_char.tscn" id="9_eq4lr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5hkv"]
 texture = ExtResource("1_q0002")
