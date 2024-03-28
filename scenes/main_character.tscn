@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://yc1p7usl717l"]
+[gd_scene load_steps=28 format=3 uid="uid://yc1p7usl717l"]
 
 [ext_resource type="Script" path="res://scenes/main_character.gd" id="1_aywx3"]
 [ext_resource type="Texture2D" uid="uid://b206fmnkbadey" path="res://assets/Basic Charakter Spritesheet.png" id="1_vfilp"]
+[ext_resource type="Texture2D" uid="uid://btupav0m376vg" path="res://assets/light.png" id="3_wundj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6d7di"]
 radius = 14.0
@@ -233,7 +234,7 @@ scale = Vector2(2.375, 2.57292)
 texture = ExtResource("1_vfilp")
 hframes = 4
 vframes = 4
-frame = 9
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-61, -379)
@@ -253,3 +254,12 @@ parameters/walk/blend_position = Vector2(0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_pfmuh")
 }
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-60, -378)
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.0
+texture = ExtResource("3_wundj")
+texture_scale = 0.5

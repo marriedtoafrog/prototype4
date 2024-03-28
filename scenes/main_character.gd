@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var moveSpeed : float = 100
+@export var moveSpeed : float = 150
 @export var startingDirection : Vector2 = Vector2(0,1)
 
 # parameters/idle/blend_position 
