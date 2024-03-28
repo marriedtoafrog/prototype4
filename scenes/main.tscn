@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dcjnihfiewuvu" path="res://assets/TX Shadow Plant.png" id="7_rs6gg"]
 [ext_resource type="Texture2D" uid="uid://1otmqxiusb3p" path="res://assets/Water.png" id="8_hsmmk"]
 [ext_resource type="PackedScene" uid="uid://yc1p7usl717l" path="res://scenes/main_character.tscn" id="8_ut6n4"]
-[ext_resource type="PackedScene" path="res://scenes/enemy_char.tscn" id="9_eq4lr"]
+[ext_resource type="PackedScene" uid="uid://6srg38y5x42o" path="res://scenes/enemy_char.tscn" id="9_eq4lr"]
 [ext_resource type="Texture2D" uid="uid://cc4t6j0e5nr4x" path="res://assets/TX Shadow.png" id="9_onr4b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5hkv"]
