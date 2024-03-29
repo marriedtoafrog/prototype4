@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccpdxkkounrut" path="res://assets/TX Plant.png" id="6_ttpxa"]
 [ext_resource type="Texture2D" uid="uid://1otmqxiusb3p" path="res://assets/Water.png" id="8_hsmmk"]
 [ext_resource type="PackedScene" uid="uid://yc1p7usl717l" path="res://scenes/main_character.tscn" id="8_ut6n4"]
-[ext_resource type="PackedScene" path="res://scenes/blob.tscn" id="9_eq4lr"]
+[ext_resource type="PackedScene" uid="uid://b1fmmgexkul6m" path="res://scenes/blob.tscn" id="9_eq4lr"]
 [ext_resource type="Texture2D" uid="uid://cc4t6j0e5nr4x" path="res://assets/TX Shadow.png" id="9_onr4b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otef8"]
@@ -886,12 +886,15 @@ texture_region_size = Vector2i(32, 32)
 2:4/0 = 0
 2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:4/0/physics_layer_0/angular_velocity = 0.0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.5, 0, -4, 5.5, 3.5, 6.5, 3.5, 0)
 6:4/0 = 0
 6:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:4/0/physics_layer_0/angular_velocity = 0.0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.5, 0, -4, 5.5, 3.5, 6.5, 3.5, 0)
 10:4/0 = 0
 10:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:4/0/physics_layer_0/angular_velocity = 0.0
+10:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.5, 0, -4, 5.5, 3.5, 6.5, 3.5, 0)
 5:5/0 = 0
 5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:5/0/physics_layer_0/angular_velocity = 0.0
@@ -907,33 +910,39 @@ texture_region_size = Vector2i(32, 32)
 1:6/0 = 0
 1:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:6/0/physics_layer_0/angular_velocity = 0.0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.5, 0, -4, 5.5, 3.5, 6.5, 3.5, 0)
 3:6/0 = 0
 3:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:6/0/physics_layer_0/angular_velocity = 0.0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.5, 0.5, -7, 9, 6.5, 9.5, 8, 0.5)
 4:6/0 = 0
 4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:6/0/physics_layer_0/angular_velocity = 0.0
 5:6/0 = 0
 5:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:6/0/physics_layer_0/angular_velocity = 0.0
+5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3, -10.5, 11.5, 12, 11, 7.5, -3.5)
 6:6/0 = 0
 6:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:6/0/physics_layer_0/angular_velocity = 0.0
 7:6/0 = 0
 7:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:6/0/physics_layer_0/angular_velocity = 0.0
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -5.5, -10.5, 15, 13, 16, 9.5, -6)
 8:6/0 = 0
 8:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:6/0/physics_layer_0/angular_velocity = 0.0
 9:6/0 = 0
 9:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:6/0/physics_layer_0/angular_velocity = 0.0
+9:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.5, -5.5, 3, -0.5, -2.5, -0.5, -7, 0, -7.5, 5.5, 8, 11, 10, 3.5)
 10:6/0 = 0
 10:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:6/0/physics_layer_0/angular_velocity = 0.0
 11:6/0 = 0
 11:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:6/0/physics_layer_0/angular_velocity = 0.0
+11:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10.5, -5.5, -10.5, 15, 13, 16, 9.5, -6)
 12:6/0 = 0
 12:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:6/0/physics_layer_0/angular_velocity = 0.0
@@ -4113,6 +4122,7 @@ position = Vector2(-68, 12)
 
 [node name="Camera2D" type="Camera2D" parent="main character"]
 position = Vector2(-60, -373)
+zoom = Vector2(3, 3)
 
 [node name="blob" parent="." instance=ExtResource("9_eq4lr")]
 position = Vector2(-1, 0)
