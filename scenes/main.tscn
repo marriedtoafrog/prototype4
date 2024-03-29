@@ -4123,7 +4123,7 @@ layer_4/name = "decor_grass"
 layer_4/tile_data = PackedInt32Array(2293745, 10, 12, 2359280, 10, 12, 2228211, 65546, 15, 2359287, 131082, 14, 2228215, 65546, 12, 2162681, 65546, 14, 2228213, 196618, 15, 2359282, 196618, 15, 1572861, 196618, 15, 1572850, 131082, 12, 1507311, 131082, 12, 1572858, 65546, 12, 1638396, 65546, 12, 1572862, 196618, 12, 1572860, 196618, 15, 1638400, 131082, 12, 1507328, 65546, 13)
 
 [node name="main character" parent="." instance=ExtResource("8_ut6n4")]
-position = Vector2(-52, -282)
+position = Vector2(-48, -282)
 
 [node name="Camera2D" type="Camera2D" parent="main character"]
 position = Vector2(-60, -373)
