@@ -151,7 +151,7 @@ states/idle/position = Vector2(312, 135)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_vec7d")
 states/walk/position = Vector2(397, 198.5)
 
-[node name="enemy char" type="CharacterBody2D"]
+[node name="blob" type="CharacterBody2D"]
 
 [node name="sprite 2d" type="AnimatedSprite2D" parent="."]
 position = Vector2(154, -121)
