@@ -8,7 +8,7 @@
 
 [sub_resource type="Animation" id="Animation_1f46j"]
 resource_name = "idle_down"
-length = 0.4
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -25,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_q7ouw"]
 resource_name = "idle_left"
-length = 0.4
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -42,7 +42,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_egqx5"]
 resource_name = "idle_right"
-length = 0.4
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -59,7 +59,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_j08dp"]
 resource_name = "idle_up"
-length = 0.4
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -255,7 +255,7 @@ libraries = {
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-61, -379)
-energy = 0.3
+energy = 0.5
 shadow_enabled = true
 texture = ExtResource("3_ny5nk")
-texture_scale = 0.5
+texture_scale = 0.7

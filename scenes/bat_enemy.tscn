@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmj8dce4mqodh"]
+
+[ext_resource type="Texture2D" uid="uid://bqiqkqa7m8luf" path="res://assets/Bat01_01/NoOutline/32x32/TopDown/Front/Bat01_01_T_F_Idle.png" id="1_ulf50"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0otk"]
+atlas = ExtResource("1_ulf50")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7kgb"]
+atlas = ExtResource("1_ulf50")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_210pd"]
+atlas = ExtResource("1_ulf50")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qscb"]
+atlas = ExtResource("1_ulf50")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6hmd"]
+atlas = ExtResource("1_ulf50")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csamu"]
+atlas = ExtResource("1_ulf50")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akamu"]
+atlas = ExtResource("1_ulf50")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w50l"]
+atlas = ExtResource("1_ulf50")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8dvl6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0otk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7kgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_210pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qscb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6hmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csamu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akamu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w50l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="bat enemy" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8dvl6")
+animation = &"idle"
+autoplay = "idle"

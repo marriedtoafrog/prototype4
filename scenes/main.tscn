@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ccxwiqda5qa2f"]
+[gd_scene load_steps=23 format=3 uid="uid://ccxwiqda5qa2f"]
 
 [ext_resource type="Texture2D" uid="uid://oill8hfxlv4" path="res://assets/TX Tileset Grass.png" id="1_q0002"]
 [ext_resource type="Texture2D" uid="uid://l0xe4t7v8hg1" path="res://assets/TX Tileset Stone Ground.png" id="2_4oikp"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://yc1p7usl717l" path="res://scenes/main_character.tscn" id="8_ut6n4"]
 [ext_resource type="PackedScene" uid="uid://b1fmmgexkul6m" path="res://scenes/blob.tscn" id="9_eq4lr"]
 [ext_resource type="Texture2D" uid="uid://cc4t6j0e5nr4x" path="res://assets/TX Shadow.png" id="9_onr4b"]
+[ext_resource type="PackedScene" uid="uid://cmj8dce4mqodh" path="res://scenes/bat_enemy.tscn" id="11_epacx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otef8"]
 texture = ExtResource("8_hsmmk")
@@ -4122,7 +4123,7 @@ layer_4/name = "decor_grass"
 layer_4/tile_data = PackedInt32Array(2293745, 10, 12, 2359280, 10, 12, 2228211, 65546, 15, 2359287, 131082, 14, 2228215, 65546, 12, 2162681, 65546, 14, 2228213, 196618, 15, 2359282, 196618, 15, 1572861, 196618, 15, 1572850, 131082, 12, 1507311, 131082, 12, 1572858, 65546, 12, 1638396, 65546, 12, 1572862, 196618, 12, 1572860, 196618, 15, 1638400, 131082, 12, 1507328, 65546, 13)
 
 [node name="main character" parent="." instance=ExtResource("8_ut6n4")]
-position = Vector2(-68, 12)
+position = Vector2(-52, -282)
 
 [node name="Camera2D" type="Camera2D" parent="main character"]
 position = Vector2(-60, -373)
@@ -4131,5 +4132,7 @@ zoom = Vector2(3, 3)
 [node name="blob" parent="." instance=ExtResource("9_eq4lr")]
 position = Vector2(-1, 0)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.647059, 0.647059, 0.647059, 1)
+[node name="map darker" type="CanvasModulate" parent="."]
+color = Color(0.627451, 0.627451, 0.627451, 1)
+
+[node name="bat enemy" parent="." instance=ExtResource("11_epacx")]
