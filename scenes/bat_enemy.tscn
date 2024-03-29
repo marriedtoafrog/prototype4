@@ -1,11 +1,11 @@
-[gd_scene load_steps=52 format=3 uid="uid://cmj8dce4mqodh"]
+[gd_scene load_steps=53 format=3 uid="uid://cmj8dce4mqodh"]
 
 [ext_resource type="Texture2D" uid="uid://dhhwpjgn20mpy" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/Bat01_01_T_F_Idle.png" id="1_ocw7w"]
 [ext_resource type="Script" path="res://scenes/bat_enemy.gd" id="1_tk0if"]
-[ext_resource type="Texture2D" uid="uid://byn2i8sbxv22h" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/idle+left-bat.png" id="2_lteq0"]
+[ext_resource type="Texture2D" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/idle+left-bat.png" id="2_lteq0"]
 [ext_resource type="Texture2D" uid="uid://cvsa17nu5c4pi" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Right/Bat01_01_T_R_Idle.png" id="3_w7ovp"]
 [ext_resource type="Texture2D" uid="uid://buv1bksllgn4v" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/Bat01_01_T_F_Move01.png" id="4_14aep"]
-[ext_resource type="Texture2D" uid="uid://dsp0i2eef47mb" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/movebatleft.png" id="5_07dpt"]
+[ext_resource type="Texture2D" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/movebatleft.png" id="5_07dpt"]
 [ext_resource type="Texture2D" uid="uid://by7sm6bbxg3uh" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Right/Bat01_01_T_R_Move01.png" id="5_xubjy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lwguh"]
@@ -335,21 +335,34 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_to2bq"]
-size = Vector2(20, 11)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3tmu"]
+size = Vector2(16, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcj5u"]
+radius = 79.0063
 
 [node name="bat enemy" type="CharacterBody2D"]
+wall_min_slide_angle = 0.0
 script = ExtResource("1_tk0if")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-55.375, -42.5)
 scale = Vector2(0.949219, 0.796875)
 sprite_frames = SubResource("SpriteFrames_68lvq")
-animation = &"idle front"
+animation = &"move left"
 autoplay = "idle front"
+frame = 5
+frame_progress = 0.837524
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-56, -46)
-shape = SubResource("RectangleShape2D_to2bq")
+position = Vector2(-55, -45)
+shape = SubResource("RectangleShape2D_y3tmu")
 
 [node name="detection area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection area"]
+position = Vector2(-55, -43)
+shape = SubResource("CircleShape2D_lcj5u")
+
+[connection signal="body_entered" from="detection area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection area" to="." method="_on_detection_area_body_exited"]
