@@ -227,12 +227,12 @@ script = ExtResource("1_aywx3")
 startingDirection = Vector2(2.08165e-12, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-60, -377)
 scale = Vector2(2.375, 2.57292)
 texture = ExtResource("1_vfilp")
 hframes = 4
 vframes = 4
-frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-61, -367.68)
