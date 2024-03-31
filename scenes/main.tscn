@@ -4374,32 +4374,46 @@ position = Vector2(-124, -402)
 motion_mode = 1
 player = NodePath("../main character")
 
-[node name="purple gem" type="Node" parent="."]
+[node name="collectable code" type="Node" parent="."]
 
-[node name="gem 1" parent="purple gem" instance=ExtResource("11_tlh1k")]
+[node name="purple gem" type="Node" parent="collectable code"]
+
+[node name="gem 1" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
 position = Vector2(-478, 304)
 
-[node name="gem 2" parent="purple gem" instance=ExtResource("11_tlh1k")]
+[node name="gem 2" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
 position = Vector2(-1439, 296)
 
-[node name="blue gem" type="Node" parent="."]
+[node name="gem 3" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
+position = Vector2(-813, 366)
 
-[node name="blue jem" parent="blue gem" instance=ExtResource("12_a3lvh")]
+[node name="gem 4" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
+position = Vector2(-1072, 415)
+
+[node name="blue gem" type="Node" parent="collectable code"]
+
+[node name="blue jem3" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
+position = Vector2(-62, -57)
+
+[node name="blue jem4" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
+position = Vector2(-174, 65)
+
+[node name="blue jem" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
 position = Vector2(-285, -14)
 
-[node name="blue jem2" parent="blue gem" instance=ExtResource("12_a3lvh")]
+[node name="blue jem2" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
 position = Vector2(-992, -304)
 
-[node name="blue gem label" type="CanvasLayer" parent="."]
+[node name="blue gem label" type="CanvasLayer" parent="collectable code"]
 
-[node name="Panel" type="Panel" parent="blue gem label"]
+[node name="Panel" type="Panel" parent="collectable code/blue gem label"]
 offset_left = 6.0
 offset_top = 55.0
 offset_right = 193.0
 offset_bottom = 101.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_o4ynj")
 
-[node name="blue label" type="Label" parent="blue gem label/Panel"]
+[node name="blue label" type="Label" parent="collectable code/blue gem label/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -4415,16 +4429,16 @@ theme_override_font_sizes/font_size = 22
 text = "Blue Gem: 0"
 horizontal_alignment = 1
 
-[node name="purple gem label" type="CanvasLayer" parent="."]
+[node name="purple gem label" type="CanvasLayer" parent="collectable code"]
 
-[node name="Panel" type="Panel" parent="purple gem label"]
+[node name="Panel" type="Panel" parent="collectable code/purple gem label"]
 offset_left = 6.0
 offset_top = 9.0
 offset_right = 193.0
 offset_bottom = 56.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_o4ynj")
 
-[node name="purple label" type="Label" parent="purple gem label/Panel"]
+[node name="purple label" type="Label" parent="collectable code/purple gem label/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -4440,6 +4454,6 @@ theme_override_font_sizes/font_size = 22
 text = "Purple Gem: 0"
 horizontal_alignment = 1
 
-[node name="game manager" type="Node" parent="."]
+[node name="game manager" type="Node" parent="collectable code"]
 unique_name_in_owner = true
 script = ExtResource("13_s6rsq")
