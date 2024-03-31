@@ -4402,7 +4402,7 @@ position = Vector2(357, 1025)
 [node name="gem 7" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
 position = Vector2(-1029, 1552)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="collectable code/purple gem"]
+[node name="GemNoise" type="AudioStreamPlayer" parent="collectable code/purple gem"]
 stream = ExtResource("14_5pcy4")
 
 [node name="blue gem" type="Node" parent="collectable code"]
@@ -4428,7 +4428,7 @@ position = Vector2(-581, -456)
 [node name="blue jem7" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
 position = Vector2(-815, 787)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="collectable code/blue gem"]
+[node name="GemNoise" type="AudioStreamPlayer" parent="collectable code/blue gem"]
 stream = ExtResource("14_5pcy4")
 
 [node name="blue gem label" type="CanvasLayer" parent="collectable code"]
@@ -4487,5 +4487,6 @@ script = ExtResource("13_s6rsq")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_awelm")
-volume_db = -2.572
+volume_db = -14.674
+pitch_scale = 0.32
 autoplay = true
