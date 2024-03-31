@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://dljydq6sd5ysp" path="res://scenes/jem_1.tscn" id="11_tlh1k"]
 [ext_resource type="PackedScene" uid="uid://c0ql2o3ijstj5" path="res://scenes/blue_jem.tscn" id="12_a3lvh"]
 [ext_resource type="Script" path="res://scenes/game manager.gd" id="13_s6rsq"]
-[ext_resource type="AudioStream" uid="uid://cy52vds3yar80" path="res://coinPickup.mp3" id="14_5pcy4"]
-[ext_resource type="AudioStream" uid="uid://cxd3s8fgsqp2v" path="res://bgsound.ogg" id="14_awelm"]
+[ext_resource type="AudioStream" uid="uid://cy52vds3yar80" path="res://assets/sounds/coinPickup.mp3" id="14_5pcy4"]
+[ext_resource type="AudioStream" uid="uid://cxd3s8fgsqp2v" path="res://assets/sounds/bgsound.ogg" id="14_awelm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otef8"]
 texture = ExtResource("8_hsmmk")
@@ -4470,3 +4470,4 @@ script = ExtResource("13_s6rsq")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_awelm")
 autoplay = true
+max_polyphony = 8
