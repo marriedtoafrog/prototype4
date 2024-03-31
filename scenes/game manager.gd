@@ -29,7 +29,7 @@ func add_purple():
 	
 func end_scene():
 	print("end_scene called: blue_gems =", blue_gems, "purple_gems =", purple_gems) 
-	if(purple_gems == 4 && blue_gems == 4):
+	if(purple_gems > 4 && blue_gems > 4):
 		get_tree().change_scene_to_file("res://scenes/end.tscn")
 		#get_tree().change_scene_to_file("res://scenes/end.tscn")
 	
