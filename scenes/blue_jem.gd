@@ -10,4 +10,4 @@ func _on_body_entered(body):
 		$"../AudioStreamPlayer".play()
 		#queue_free()
 		hide()
-		game_manager.add_purple()
+		game_manager.add_blue()

@@ -4382,7 +4382,7 @@ trigger_distance = 200.0
 [node name="purple gem" type="Node" parent="collectable code"]
 
 [node name="gem 1" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
-position = Vector2(-1593, 1114)
+position = Vector2(-1973, 1246)
 
 [node name="gem 2" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
 position = Vector2(-548, 797)
@@ -4392,6 +4392,15 @@ position = Vector2(-1408, 1332)
 
 [node name="gem 4" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
 position = Vector2(-276, 1497)
+
+[node name="gem 5" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
+position = Vector2(-357, -57)
+
+[node name="gem 6" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
+position = Vector2(357, 1025)
+
+[node name="gem 7" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
+position = Vector2(-1029, 1552)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="collectable code/purple gem"]
 stream = ExtResource("14_5pcy4")
@@ -4407,8 +4416,17 @@ position = Vector2(1010, -384)
 [node name="blue jem" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
 position = Vector2(-1117, 387)
 
+[node name="blue jem5" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
+position = Vector2(157, 184)
+
+[node name="blue jem6" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
+position = Vector2(-1278, -250)
+
 [node name="blue jem2" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
-position = Vector2(-221, -478)
+position = Vector2(-581, -456)
+
+[node name="blue jem7" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
+position = Vector2(-815, 787)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="collectable code/blue gem"]
 stream = ExtResource("14_5pcy4")
