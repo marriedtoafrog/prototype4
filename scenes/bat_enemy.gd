@@ -1,34 +1,22 @@
 extends CharacterBody2D
 
-var speed = 50
-var playerChase = false 
-var player = null 
+const speed = 50
 
-func _physics_process(delta):
-	if playerChase:
-		position += (player.position - position).normalized() * speed * delta
-		move_and_collide(Vector2(0,0)) 
-		if(player.position.x - position.x) < 0: 
-			#$AnimatedSprite2D.flip_h = true 
-			$AnimatedSprite2D.play("move left")
-			#$AnimatedSprite2D.flip_h = true #going left 
-		else: 
-			#$AnimatedSprite2D.flip_h = false 
-			$AnimatedSprite2D.play("move right")
-			
-	else:
-		velocity = lerp(velocity, Vector2.ZERO, 0.05)
-		move_and_collide(velocity) 
-		$AnimatedSprite2D.play("move front") 
-		
-		
-		
-#enters the zone 
-func _on_detection_area_body_entered(body):
-	player = body 
-	playerChase = true 
+@export var player: Node2D
+@onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 
 
-func _on_detection_area_body_exited(body):
-	player = null 
-	playerChase = false 
+func _physics_process(_delta:float) -> void:
+	
+	var dir = to_local(nav_agent.get_next_path_position()).normalized()
+	velocity = dir * speed
+	#printerr("dir", dir)
+	move_and_slide()
+	
+
+func make_path() -> void:
+	print("making path")
+	nav_agent.target_position = player.global_position
+
+func _on_timer_timeout():
+	make_path() 

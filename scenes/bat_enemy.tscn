@@ -1,11 +1,11 @@
-[gd_scene load_steps=53 format=3 uid="uid://cmj8dce4mqodh"]
+[gd_scene load_steps=52 format=3 uid="uid://cmj8dce4mqodh"]
 
 [ext_resource type="Texture2D" uid="uid://dhhwpjgn20mpy" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/Bat01_01_T_F_Idle.png" id="1_ocw7w"]
 [ext_resource type="Script" path="res://scenes/bat_enemy.gd" id="1_tk0if"]
-[ext_resource type="Texture2D" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/idle+left-bat.png" id="2_lteq0"]
+[ext_resource type="Texture2D" uid="uid://byn2i8sbxv22h" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/idle+left-bat.png" id="2_lteq0"]
 [ext_resource type="Texture2D" uid="uid://cvsa17nu5c4pi" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Right/Bat01_01_T_R_Idle.png" id="3_w7ovp"]
 [ext_resource type="Texture2D" uid="uid://buv1bksllgn4v" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/Bat01_01_T_F_Move01.png" id="4_14aep"]
-[ext_resource type="Texture2D" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/movebatleft.png" id="5_07dpt"]
+[ext_resource type="Texture2D" uid="uid://dsp0i2eef47mb" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/movebatleft.png" id="5_07dpt"]
 [ext_resource type="Texture2D" uid="uid://by7sm6bbxg3uh" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Right/Bat01_01_T_R_Move01.png" id="5_xubjy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lwguh"]
@@ -338,10 +338,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3tmu"]
 size = Vector2(16, 10)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lcj5u"]
-radius = 79.0063
-
 [node name="bat enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 wall_min_slide_angle = 0.0
 script = ExtResource("1_tk0if")
 
@@ -358,11 +357,13 @@ frame_progress = 0.837524
 position = Vector2(-55, -45)
 shape = SubResource("RectangleShape2D_y3tmu")
 
-[node name="detection area" type="Area2D" parent="."]
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+autostart = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detection area"]
-position = Vector2(-55, -43)
-shape = SubResource("CircleShape2D_lcj5u")
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
 
-[connection signal="body_entered" from="detection area" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="detection area" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
