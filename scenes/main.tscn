@@ -4373,6 +4373,7 @@ y_sort_enabled = true
 position = Vector2(-124, -402)
 motion_mode = 1
 player = NodePath("../main character")
+trigger_distance = 200.0
 
 [node name="collectable code" type="Node" parent="."]
 
