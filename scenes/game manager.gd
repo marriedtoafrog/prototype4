@@ -14,6 +14,7 @@ func add_blue():
 	#points_label.text = "Purple Gems: " + str(purple_gems) 
 		blue_label.text = "Blue Gems: " + str(blue_gems)
 		purple_label.text = "Purple Gems: " + str(purple_gems)
+	
 	end_scene()
 		
 func add_purple(): 
@@ -27,8 +28,10 @@ func add_purple():
 	end_scene() 
 	
 func end_scene():
-	if(purple_gems == 3 && blue_gems == 3):
+	print("end_scene called: blue_gems =", blue_gems, "purple_gems =", purple_gems) 
+	if(purple_gems == 4 && blue_gems == 4):
 		get_tree().change_scene_to_file("res://scenes/end.tscn")
+		#get_tree().change_scene_to_file("res://scenes/end.tscn")
 	
 
 	

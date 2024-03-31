@@ -9,6 +9,8 @@ func _on_body_entered(body):
 		$"../AudioStreamPlayer".play()
 		#queue_free()
 		hide()
-	if(body.name == "main character"):
 		queue_free()
 		game_manager.add_blue()
+#	if(body.name == "main character"):
+#		queue_free()
+#		game_manager.add_blue()
