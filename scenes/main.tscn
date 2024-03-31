@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ccxwiqda5qa2f"]
+[gd_scene load_steps=38 format=3 uid="uid://ccxwiqda5qa2f"]
 
 [ext_resource type="Texture2D" uid="uid://oill8hfxlv4" path="res://assets/TX Tileset Grass.png" id="1_q0002"]
 [ext_resource type="Texture2D" uid="uid://l0xe4t7v8hg1" path="res://assets/TX Tileset Stone Ground.png" id="2_4oikp"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://dljydq6sd5ysp" path="res://scenes/jem_1.tscn" id="11_tlh1k"]
 [ext_resource type="PackedScene" uid="uid://c0ql2o3ijstj5" path="res://scenes/blue_jem.tscn" id="12_a3lvh"]
 [ext_resource type="Script" path="res://scenes/game manager.gd" id="13_s6rsq"]
+[ext_resource type="AudioStream" uid="uid://cy52vds3yar80" path="res://coinPickup.mp3" id="14_5pcy4"]
+[ext_resource type="AudioStream" uid="uid://cxd3s8fgsqp2v" path="res://bgsound.ogg" id="14_awelm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otef8"]
 texture = ExtResource("8_hsmmk")
@@ -4380,30 +4382,36 @@ trigger_distance = 200.0
 [node name="purple gem" type="Node" parent="collectable code"]
 
 [node name="gem 1" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
-position = Vector2(-478, 304)
+position = Vector2(-1593, 1114)
 
 [node name="gem 2" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
-position = Vector2(-1439, 296)
+position = Vector2(-548, 797)
 
 [node name="gem 3" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
-position = Vector2(-813, 366)
+position = Vector2(-1408, 1332)
 
 [node name="gem 4" parent="collectable code/purple gem" instance=ExtResource("11_tlh1k")]
-position = Vector2(-1072, 415)
+position = Vector2(-276, 1497)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="collectable code/purple gem"]
+stream = ExtResource("14_5pcy4")
 
 [node name="blue gem" type="Node" parent="collectable code"]
 
 [node name="blue jem3" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
-position = Vector2(-62, -57)
+position = Vector2(707, 735)
 
 [node name="blue jem4" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
-position = Vector2(-174, 65)
+position = Vector2(1010, -384)
 
 [node name="blue jem" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
-position = Vector2(-285, -14)
+position = Vector2(-1117, 387)
 
 [node name="blue jem2" parent="collectable code/blue gem" instance=ExtResource("12_a3lvh")]
-position = Vector2(-992, -304)
+position = Vector2(-221, -478)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="collectable code/blue gem"]
+stream = ExtResource("14_5pcy4")
 
 [node name="blue gem label" type="CanvasLayer" parent="collectable code"]
 
@@ -4458,3 +4466,7 @@ horizontal_alignment = 1
 [node name="game manager" type="Node" parent="collectable code"]
 unique_name_in_owner = true
 script = ExtResource("13_s6rsq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_awelm")
+autoplay = true
