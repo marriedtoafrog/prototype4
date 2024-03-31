@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ccxwiqda5qa2f"]
+[gd_scene load_steps=36 format=3 uid="uid://ccxwiqda5qa2f"]
 
 [ext_resource type="Texture2D" uid="uid://oill8hfxlv4" path="res://assets/TX Tileset Grass.png" id="1_q0002"]
 [ext_resource type="Texture2D" uid="uid://l0xe4t7v8hg1" path="res://assets/TX Tileset Stone Ground.png" id="2_4oikp"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://yc1p7usl717l" path="res://scenes/main_character.tscn" id="8_ut6n4"]
 [ext_resource type="Texture2D" uid="uid://cc4t6j0e5nr4x" path="res://assets/TX Shadow.png" id="9_onr4b"]
 [ext_resource type="PackedScene" uid="uid://cmj8dce4mqodh" path="res://scenes/bat_enemy.tscn" id="11_epacx"]
+[ext_resource type="PackedScene" uid="uid://dljydq6sd5ysp" path="res://scenes/jem_1.tscn" id="11_tlh1k"]
+[ext_resource type="PackedScene" uid="uid://c0ql2o3ijstj5" path="res://scenes/blue_jem.tscn" id="12_a3lvh"]
+[ext_resource type="Script" path="res://scenes/game manager.gd" id="13_s6rsq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otef8"]
 texture = ExtResource("8_hsmmk")
@@ -4327,6 +4330,9 @@ sources/0 = SubResource("TileSetAtlasSource_otef8")
 sources/1 = SubResource("TileSetAtlasSource_oa6wc")
 sources/2 = SubResource("TileSetAtlasSource_vwbxf")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4ynj"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
@@ -4367,3 +4373,73 @@ y_sort_enabled = true
 position = Vector2(-124, -402)
 motion_mode = 1
 player = NodePath("../main character")
+
+[node name="purple gem" type="Node" parent="."]
+
+[node name="gem 1" parent="purple gem" instance=ExtResource("11_tlh1k")]
+position = Vector2(-478, 304)
+
+[node name="gem 2" parent="purple gem" instance=ExtResource("11_tlh1k")]
+position = Vector2(-1439, 296)
+
+[node name="blue gem" type="Node" parent="."]
+
+[node name="blue jem" parent="blue gem" instance=ExtResource("12_a3lvh")]
+position = Vector2(-285, -14)
+
+[node name="blue jem2" parent="blue gem" instance=ExtResource("12_a3lvh")]
+position = Vector2(-992, -304)
+
+[node name="blue gem label" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="blue gem label"]
+offset_left = 6.0
+offset_top = 55.0
+offset_right = 193.0
+offset_bottom = 101.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o4ynj")
+
+[node name="blue label" type="Label" parent="blue gem label/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "Blue Gem: 0"
+horizontal_alignment = 1
+
+[node name="purple gem label" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="purple gem label"]
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 193.0
+offset_bottom = 56.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o4ynj")
+
+[node name="purple label" type="Label" parent="purple gem label/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 12.0
+offset_right = 1.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "Purple Gem: 0"
+horizontal_alignment = 1
+
+[node name="game manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("13_s6rsq")

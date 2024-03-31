@@ -1,7 +1,7 @@
 extends Node
 #@onready var points_label = %Label
-@onready var blue_label = %"Blue Label"
-@onready var purple_label = %"Purple Label"
+@onready var blue_label = %"blue label"
+@onready var purple_label = %"purple label"
 
 var blue_gems = 0 
 var purple_gems = 0
