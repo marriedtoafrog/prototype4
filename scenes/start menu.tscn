@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbl0ldotf26ny"]
+
+[ext_resource type="Texture2D" uid="uid://d1tdbv27ng04x" path="res://assets/Green.png" id="1_00eg7"]
+[ext_resource type="Script" path="res://scenes/start menu.gd" id="1_odexf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7278"]
+bg_color = Color(0.929412, 0.776471, 0.72549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i31oc"]
+bg_color = Color(0.666667, 0.345098, 0.470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_117wr"]
+bg_color = Color(0.137255, 0.27451, 0.219608, 1)
+
+[node name="StartMenu" type="Node"]
+script = ExtResource("1_odexf")
+
+[node name="background" type="TextureRect" parent="."]
+modulate = Color(0.294118, 0.294118, 0.294118, 1)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_00eg7")
+stretch_mode = 1
+
+[node name="start button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.734
+anchor_right = 0.5
+anchor_bottom = 0.734
+offset_left = -203.0
+offset_top = -66.72
+offset_right = 203.0
+offset_bottom = 66.28
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_i7278")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i31oc")
+text = "Start Game"
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -582.0
+offset_top = -298.0
+offset_right = 606.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_117wr")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = -27.5
+offset_right = 318.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Instructions on how to play game"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="start button" to="." method="_on_start_button_pressed"]
