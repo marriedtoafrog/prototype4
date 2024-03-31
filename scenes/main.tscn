@@ -4335,7 +4335,7 @@ sources/2 = SubResource("TileSetAtlasSource_vwbxf")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4ynj"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 1)
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -4470,4 +4470,3 @@ script = ExtResource("13_s6rsq")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_awelm")
 autoplay = true
-max_polyphony = 8
