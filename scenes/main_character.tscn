@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b206fmnkbadey" path="res://assets/Basic Charakter Spritesheet.png" id="1_vfilp"]
 [ext_resource type="Texture2D" uid="uid://c4ar4lmw1r5md" path="res://assets/light.png" id="3_ny5nk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwqhr"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xt5oj"]
 
 [sub_resource type="Animation" id="Animation_1f46j"]
 resource_name = "idle_down"
@@ -231,7 +231,6 @@ startingDirection = Vector2(2.08165e-12, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-60, -377)
 scale = Vector2(2.375, 2.57292)
 texture = ExtResource("1_vfilp")
 hframes = 4
@@ -239,8 +238,8 @@ vframes = 4
 frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-61, -367.68)
-shape = SubResource("RectangleShape2D_wwqhr")
+position = Vector2(2.08165e-12, 10)
+shape = SubResource("CircleShape2D_xt5oj")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
@@ -258,7 +257,6 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-61, -379)
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("3_ny5nk")

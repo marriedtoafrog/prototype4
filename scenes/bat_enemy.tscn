@@ -345,7 +345,6 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_tk0if")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-55.375, -42.5)
 scale = Vector2(0.949219, 0.796875)
 sprite_frames = SubResource("SpriteFrames_68lvq")
 animation = &"move left"
@@ -354,7 +353,6 @@ frame = 5
 frame_progress = 0.837524
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-55, -45)
 shape = SubResource("RectangleShape2D_y3tmu")
 
 [node name="Timer" type="Timer" parent="."]

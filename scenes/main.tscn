@@ -4358,7 +4358,6 @@ y_sort_enabled = true
 position = Vector2(-48, -282)
 
 [node name="Camera2D" type="Camera2D" parent="main character"]
-position = Vector2(-60, -373)
 
 [node name="blob" parent="." instance=ExtResource("9_eq4lr")]
 visible = false
