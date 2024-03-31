@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ccxwiqda5qa2f"]
+[gd_scene load_steps=32 format=3 uid="uid://ccxwiqda5qa2f"]
 
 [ext_resource type="Texture2D" uid="uid://oill8hfxlv4" path="res://assets/TX Tileset Grass.png" id="1_q0002"]
 [ext_resource type="Texture2D" uid="uid://l0xe4t7v8hg1" path="res://assets/TX Tileset Stone Ground.png" id="2_4oikp"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ccpdxkkounrut" path="res://assets/TX Plant.png" id="6_ttpxa"]
 [ext_resource type="Texture2D" uid="uid://1otmqxiusb3p" path="res://assets/Water.png" id="8_hsmmk"]
 [ext_resource type="PackedScene" uid="uid://yc1p7usl717l" path="res://scenes/main_character.tscn" id="8_ut6n4"]
-[ext_resource type="PackedScene" uid="uid://b1fmmgexkul6m" path="res://scenes/blob.tscn" id="9_eq4lr"]
 [ext_resource type="Texture2D" uid="uid://cc4t6j0e5nr4x" path="res://assets/TX Shadow.png" id="9_onr4b"]
 [ext_resource type="PackedScene" uid="uid://cmj8dce4mqodh" path="res://scenes/bat_enemy.tscn" id="11_epacx"]
 
@@ -4358,11 +4357,7 @@ y_sort_enabled = true
 position = Vector2(-48, -282)
 
 [node name="Camera2D" type="Camera2D" parent="main character"]
-
-[node name="blob" parent="." instance=ExtResource("9_eq4lr")]
-visible = false
-y_sort_enabled = true
-position = Vector2(-1, 0)
+zoom = Vector2(3, 3)
 
 [node name="map darker" type="CanvasModulate" parent="."]
 color = Color(0.627451, 0.627451, 0.627451, 1)

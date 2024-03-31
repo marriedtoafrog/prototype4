@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cmj8dce4mqodh"]
+[gd_scene load_steps=60 format=3 uid="uid://cmj8dce4mqodh"]
 
 [ext_resource type="Texture2D" uid="uid://dhhwpjgn20mpy" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/Bat01_01_T_F_Idle.png" id="1_ocw7w"]
 [ext_resource type="Script" path="res://scenes/bat_enemy.gd" id="1_tk0if"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://buv1bksllgn4v" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/Bat01_01_T_F_Move01.png" id="4_14aep"]
 [ext_resource type="Texture2D" uid="uid://dsp0i2eef47mb" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/movebatleft.png" id="5_07dpt"]
 [ext_resource type="Texture2D" uid="uid://by7sm6bbxg3uh" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Right/Bat01_01_T_R_Move01.png" id="5_xubjy"]
+[ext_resource type="Texture2D" uid="uid://b7bun82royf4y" path="res://assets/exclamation-7x8.png" id="8_svkhm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lwguh"]
 atlas = ExtResource("1_ocw7w")
@@ -335,8 +336,57 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3tmu"]
-size = Vector2(16, 10)
+[sub_resource type="CircleShape2D" id="CircleShape2D_sv85o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp5gj"]
+atlas = ExtResource("8_svkhm")
+region = Rect2(0, 0, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7qgs"]
+atlas = ExtResource("8_svkhm")
+region = Rect2(7, 0, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wsxg"]
+atlas = ExtResource("8_svkhm")
+region = Rect2(14, 0, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3fb5"]
+atlas = ExtResource("8_svkhm")
+region = Rect2(21, 0, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdfj5"]
+atlas = ExtResource("8_svkhm")
+region = Rect2(28, 0, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmy5k"]
+atlas = ExtResource("8_svkhm")
+region = Rect2(35, 0, 7, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b3gwq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp5gj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7qgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wsxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3fb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdfj5")
+}, {
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_fmy5k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [node name="bat enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -353,7 +403,8 @@ frame = 5
 frame_progress = 0.837524
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_y3tmu")
+position = Vector2(-2, 2.08165e-12)
+shape = SubResource("CircleShape2D_sv85o")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
@@ -363,5 +414,11 @@ autostart = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="ExclaimationMark" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_b3gwq")
+frame_progress = 0.0840603
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

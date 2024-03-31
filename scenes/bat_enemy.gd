@@ -10,7 +10,6 @@ func _physics_process(_delta:float) -> void:
 	
 	var dir = to_local(nav_agent.get_next_path_position()).normalized()
 	velocity = dir * speed
-	#printerr("dir", dir)
 	move_and_slide()
 	
 
