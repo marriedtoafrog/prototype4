@@ -292,7 +292,7 @@ scale = Vector2(2.375, 2.57292)
 texture = ExtResource("1_vfilp")
 hframes = 4
 vframes = 4
-frame = 9
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.08165e-12, 10)
@@ -315,7 +315,7 @@ libraries = {
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(17, 3)
-energy = 0.5
+energy = 0.4
 shadow_enabled = true
 texture = ExtResource("3_ny5nk")
 texture_scale = 0.7

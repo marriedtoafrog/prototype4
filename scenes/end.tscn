@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh5urobrrumoq"]
+[gd_scene load_steps=6 format=3 uid="uid://dh5urobrrumoq"]
 
 [ext_resource type="Texture2D" uid="uid://d1tdbv27ng04x" path="res://assets/Green.png" id="1_d6ga3"]
 [ext_resource type="Script" path="res://scenes/end.gd" id="1_gmmxb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rihdx"]
+bg_color = Color(0.709804, 0.643137, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a6wa"]
+bg_color = Color(0.286275, 0.180392, 0.286275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cb0y"]
+bg_color = Color(0.286275, 0.180392, 0.286275, 1)
 
 [node name="End" type="Node"]
 script = ExtResource("1_gmmxb")
@@ -17,27 +26,28 @@ texture = ExtResource("1_d6ga3")
 stretch_mode = 1
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -309.0
-offset_top = -77.0
-offset_right = 268.0
-offset_bottom = 74.0
+anchors_preset = -1
+anchor_left = 0.484
+anchor_top = 0.365
+anchor_right = 0.484
+anchor_bottom = 0.365
+offset_left = -288.96
+offset_top = -59.2
+offset_right = 288.04
+offset_bottom = 132.8
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rihdx")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 14.0
-offset_right = 2.0
-offset_bottom = 14.0
+offset_left = -10.0
+offset_top = 37.0
+offset_right = -10.0
+offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 80
@@ -50,13 +60,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -201.0
-offset_top = 173.0
-offset_right = 170.0
-offset_bottom = 288.0
+offset_left = -536.0
+offset_top = 157.0
+offset_right = -165.0
+offset_bottom = 272.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_1a6wa")
 text = "Main Menu"
 
+[node name="restart game" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = 158.0
+offset_right = 439.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4cb0y")
+text = "Restart Game"
+
 [connection signal="pressed" from="go back button" to="." method="_on_go_back_button_pressed"]
+[connection signal="pressed" from="restart game" to="." method="_on_restart_game_pressed"]
