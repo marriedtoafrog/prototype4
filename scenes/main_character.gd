@@ -6,6 +6,7 @@ extends CharacterBody2D
 # parameters/idle/blend_position 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")	
+@onready var grass_footstep = $"GrassFootstep"
 
 func _ready(): 
 	update_animation_parameters(startingDirection)
@@ -39,4 +40,7 @@ func pick_new_state():
 	else:
 		state_machine.travel("idle")
 		
-
+func play_grass_footstep():
+	#grass_footstep.pitch_scale = randf_range(-0.8, 1)
+	grass_footstep.volume_db = randf_range(-20,-18)
+	grass_footstep.play()
