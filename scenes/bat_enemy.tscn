@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cmj8dce4mqodh"]
+[gd_scene load_steps=68 format=3 uid="uid://cmj8dce4mqodh"]
 
 [ext_resource type="Texture2D" uid="uid://dhhwpjgn20mpy" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/Bat01_01_T_F_Idle.png" id="1_ocw7w"]
 [ext_resource type="Script" path="res://scenes/bat_enemy.gd" id="1_tk0if"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dsp0i2eef47mb" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Front/movebatleft.png" id="5_07dpt"]
 [ext_resource type="Texture2D" uid="uid://by7sm6bbxg3uh" path="res://assets/Bat01_01/NoOutline/64x64/TopDown/Right/Bat01_01_T_R_Move01.png" id="5_xubjy"]
 [ext_resource type="Texture2D" uid="uid://b7bun82royf4y" path="res://assets/exclamation-7x8.png" id="8_svkhm"]
+[ext_resource type="Texture2D" uid="uid://blyr5vpmmgspv" path="res://assets/QuestionMark.png" id="9_ocydj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lwguh"]
 atlas = ExtResource("1_ocw7w")
@@ -386,6 +387,56 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgfuv"]
+atlas = ExtResource("9_ocydj")
+region = Rect2(0, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trnva"]
+atlas = ExtResource("9_ocydj")
+region = Rect2(14, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkcvr"]
+atlas = ExtResource("9_ocydj")
+region = Rect2(28, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edsh1"]
+atlas = ExtResource("9_ocydj")
+region = Rect2(42, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7ewd"]
+atlas = ExtResource("9_ocydj")
+region = Rect2(56, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiu8d"]
+atlas = ExtResource("9_ocydj")
+region = Rect2(70, 0, 14, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vy4t1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgfuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trnva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkcvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edsh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7ewd")
+}, {
+"duration": 24.0,
+"texture": SubResource("AtlasTexture_jiu8d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_sv85o"]
 
 [node name="bat enemy" type="CharacterBody2D"]
@@ -411,18 +462,28 @@ sprite_frames = SubResource("SpriteFrames_b3gwq")
 frame = 5
 frame_progress = 1.0
 
+[node name="QuestionMark" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, -27)
+scale = Vector2(2.89286, 2.65179)
+sprite_frames = SubResource("SpriteFrames_vy4t1")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("CircleShape2D_sv85o")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="PathRegen" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.1
 autostart = true
+
+[node name="SuspicionTimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [connection signal="animation_finished" from="ExclaimationMark" to="." method="_on_exclaimation_mark_animation_finished"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="QuestionMark" to="." method="_on_question_mark_animation_finished"]
+[connection signal="timeout" from="PathRegen" to="." method="_on_path_regen_timeout"]
+[connection signal="timeout" from="SuspicionTimer" to="." method="_on_suspicion_timer_timeout"]
