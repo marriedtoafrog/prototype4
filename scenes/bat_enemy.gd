@@ -27,6 +27,8 @@ var did_spotted_anim = false
 # this flag should be true if the player is out of distance range but making noise.
 var is_suspicious = false;
 
+var enemy_cooldown = true 
+
 ### PHYSICS LOOP ###
 func _physics_process(_delta:float) -> void:
 	# 3 options: wander (default), investigate, chase
@@ -67,8 +69,22 @@ func _physics_process(_delta:float) -> void:
 	wandering_dir = dir
 	move_and_slide()
 	
+###ENEMY ATTACK PLAYER###
+	for i in range(get_slide_collision_count()):
+		if enemy_cooldown == true:
+			var collision = get_slide_collision(i)
+			var object = collision.get_collider()
+			if object.is_in_group("player"):
+				object.lost_health() 
+				enemy_cooldown = false  
+				$AttackCooldown.start()
+			#$AttackCooldown.start()
+		#var object = collision.get_collider
 
-	
+
+func _on_attack_cooldown_timeout():
+	enemy_cooldown = true 
+
 ### AI BEHAVIOR ### 
 func make_path() -> void:
 	nav_agent.target_position = player.global_position
@@ -99,7 +115,5 @@ func animate_suspicious():
 
 func _on_question_mark_animation_finished():
 	question_sprite.hide()
-
-
 
 

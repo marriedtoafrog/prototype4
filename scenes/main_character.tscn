@@ -279,8 +279,10 @@ states/walk/position = Vector2(479.55, 104.132)
 transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_eq0pm"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ea6pb"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_h07nd")]
 graph_offset = Vector2(11.5501, -15.51)
 
-[node name="main character" type="CharacterBody2D"]
+[node name="main character" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_aywx3")
 startingDirection = Vector2(2.08165e-12, 1)
 
@@ -290,7 +292,7 @@ scale = Vector2(2.375, 2.57292)
 texture = ExtResource("1_vfilp")
 hframes = 4
 vframes = 4
-frame = 8
+frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.08165e-12, 10)
@@ -312,6 +314,7 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(17, 3)
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("3_ny5nk")
@@ -321,3 +324,8 @@ texture_scale = 0.7
 stream = ExtResource("4_avflb")
 volume_db = -8.0
 pitch_scale = 0.99
+
+[node name="attack cooldown" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="attack cooldown" to="." method="_on_attack_cooldown_timeout"]
