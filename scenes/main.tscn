@@ -4420,7 +4420,7 @@ position = Vector2(-112, -660)
 zoom = Vector2(3, 3)
 
 [node name="map darker" type="CanvasModulate" parent="."]
-color = Color(0.996078, 0.996078, 0.996078, 1)
+color = Color(0.203922, 0.203922, 0.203922, 1)
 
 [node name="bat enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("11_epacx")]
 y_sort_enabled = true
