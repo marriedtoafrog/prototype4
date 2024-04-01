@@ -482,7 +482,6 @@ autostart = true
 wait_time = 2.5
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="ChangeWanderDir" type="Timer" parent="."]

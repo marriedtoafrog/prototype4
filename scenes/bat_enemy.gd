@@ -121,7 +121,7 @@ func get_enemy_suspicion() -> bool:
 
 func get_enemy_chase_status() -> bool:
 	# if already chasing, then chase radius increases
-	var chase_boost = 50 if is_chasing else 0
+	var chase_boost = 20 if is_chasing else 0
 	
 	# if not currently chasing but in range, do ! anim
 	if ( !is_chasing && nav_agent.distance_to_target() <= trigger_distance ):
