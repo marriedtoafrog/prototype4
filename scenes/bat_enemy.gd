@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const chase_speed = 50
 const wander_speed = 20
-const investigate_speed = 45
+const investigate_speed = 33
 
 var wandering_dir = Vector2.ZERO
 @export var wander_change: float
@@ -31,8 +31,10 @@ var is_suspicious = false;
 func _physics_process(_delta:float) -> void:
 	# 3 options: wander (default), investigate, chase
 	
-	var dir;
-	var speed;
+	var dir
+	var speed
+	
+	is_suspicious = get_enemy_suspicion()
 	
 	# chase if in range
 	if (nav_agent.distance_to_target() <= trigger_distance):
@@ -45,6 +47,7 @@ func _physics_process(_delta:float) -> void:
 		
 	# investigate if suspicious
 	elif (is_suspicious):	
+		exclaim_sprite.hide()
 		animate_suspicious()
 		dir = to_local(nav_agent.get_next_path_position()).normalized()
 		speed = investigate_speed
@@ -79,10 +82,29 @@ func _on_path_regen_timeout():
 
 func _on_suspicion_timer_timeout():
 	is_suspicious = false
+	question_sprite.hide()
+	suspicion_timer.stop()
+
+	print('no longer suspicious!')
+	
 
 func _on_change_wander_dir_timeout():
 	change_wander_dir = true
 	
+func get_enemy_suspicion() -> bool:
+	# helper function to ask if the bat should be suspicious.
+	# conditions: nonzero input and within earshot and NOT seen
+	
+	var has_nonzero_input: bool = Vector2(Input.get_action_strength("right") - 
+		Input.get_action_strength("left"),
+		Input.get_action_strength("down") - 
+		Input.get_action_strength("up")).length() != 0
+		
+	var is_within_earshot: bool = self.position.distance_to(player.position) <= earshot_radius
+	
+	var is_not_seen: bool = nav_agent.distance_to_target() > trigger_distance
+	return  has_nonzero_input && is_within_earshot && is_not_seen
+
 ### REACTION SPRITE ANIMATIONS ###
 func animate_spotted():
 	exclaim_sprite.show()	
@@ -93,6 +115,7 @@ func _on_exclaimation_mark_animation_finished():
 	exclaim_sprite.hide()
 
 func animate_suspicious():
+	question_sprite.show()
 	question_sprite.play("default")
 	is_suspicious = true
 	suspicion_timer.start()
