@@ -50,11 +50,11 @@ func _physics_process(_delta:float) -> void:
 		speed = investigate_speed
 		did_spotted_anim = false
 	else:
-		# else, change direction a little bit
 		
 		speed = wander_speed
 		
 		if (change_wander_dir):
+			# else, change direction a little bit			
 			wandering_dir.x += wander_change * randf_range(-1,1)
 			wandering_dir.y += wander_change * randf_range(-1,1)
 			change_wander_dir = false
