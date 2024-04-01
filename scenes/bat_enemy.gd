@@ -8,7 +8,7 @@ const speed = 50
 
 # follow only if the player is in range
 @export var trigger_distance: float
-var do_spotted_anim = false 
+var did_spotted_anim = false 
 
 func _physics_process(_delta:float) -> void:
 	
@@ -16,13 +16,14 @@ func _physics_process(_delta:float) -> void:
 	velocity = dir * speed
 	
 	if (nav_agent.distance_to_target() <= trigger_distance):
-		if (!do_spotted_anim):
+		if (!did_spotted_anim):
+			# if we haven't shown the surprise anim yet, do it.
 			exclaim_sprite.show()
-			animate_exclaimation()
+			animate_spotted()
 		move_and_slide()
 	else:
-		do_spotted_anim = false
-		exclaim_sprite.hide()
+		# we are out of range, so we can show the anim again when we are in range again
+		did_spotted_anim = false
 	
 
 func make_path() -> void:
@@ -32,5 +33,9 @@ func _on_timer_timeout():
 	# make a path every _ seconds
 	make_path() 
 
-func animate_exclaimation():
+func animate_spotted():
 	exclaim_sprite.play("default")
+	did_spotted_anim = true
+
+func _on_exclaimation_mark_animation_finished():
+	exclaim_sprite.hide()
