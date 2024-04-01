@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 const chase_speed = 50
-const wander_speed = 40
+const wander_speed = 20
 const investigate_speed = 45
 
 var wandering_dir = Vector2.ZERO
 @export var wander_change: float
+var change_wander_dir = false
 
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
@@ -50,9 +51,14 @@ func _physics_process(_delta:float) -> void:
 		did_spotted_anim = false
 	else:
 		# else, change direction a little bit
+		
 		speed = wander_speed
-		wandering_dir.x += wander_change * randf_range(-1,1)
-		wandering_dir.y += wander_change * randf_range(-1,1)
+		
+		if (change_wander_dir):
+			wandering_dir.x += wander_change * randf_range(-1,1)
+			wandering_dir.y += wander_change * randf_range(-1,1)
+			change_wander_dir = false
+			
 		dir = wandering_dir.normalized()
 		did_spotted_anim = false
 		
@@ -74,7 +80,9 @@ func _on_path_regen_timeout():
 func _on_suspicion_timer_timeout():
 	is_suspicious = false
 
-
+func _on_change_wander_dir_timeout():
+	change_wander_dir = true
+	
 ### REACTION SPRITE ANIMATIONS ###
 func animate_spotted():
 	exclaim_sprite.show()	
@@ -91,4 +99,7 @@ func animate_suspicious():
 
 func _on_question_mark_animation_finished():
 	question_sprite.hide()
+
+
+
 
