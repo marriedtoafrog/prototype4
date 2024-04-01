@@ -336,8 +336,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sv85o"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_pp5gj"]
 atlas = ExtResource("8_svkhm")
 region = Rect2(0, 0, 7, 8)
@@ -383,10 +381,12 @@ animations = [{
 "duration": 7.0,
 "texture": SubResource("AtlasTexture_fmy5k")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 12.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sv85o"]
 
 [node name="bat enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -402,8 +402,17 @@ autoplay = "idle front"
 frame = 5
 frame_progress = 0.837524
 
+[node name="ExclaimationMark" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(-4.76837e-07, -27)
+scale = Vector2(2.89286, 2.65179)
+sprite_frames = SubResource("SpriteFrames_b3gwq")
+frame = 5
+frame_progress = 1.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 2.08165e-12)
+position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("CircleShape2D_sv85o")
 
 [node name="Timer" type="Timer" parent="."]
@@ -414,11 +423,5 @@ autostart = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
-
-[node name="ExclaimationMark" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -24)
-sprite_frames = SubResource("SpriteFrames_b3gwq")
-frame_progress = 0.0840603
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -4,9 +4,11 @@ const speed = 50
 
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
+@onready var exclaim_sprite := $ExclaimationMark as AnimatedSprite2D
 
 # follow only if the player is in range
 @export var trigger_distance: float
+var do_spotted_anim = false 
 
 func _physics_process(_delta:float) -> void:
 	
@@ -14,7 +16,13 @@ func _physics_process(_delta:float) -> void:
 	velocity = dir * speed
 	
 	if (nav_agent.distance_to_target() <= trigger_distance):
+		if (!do_spotted_anim):
+			exclaim_sprite.show()
+			animate_exclaimation()
 		move_and_slide()
+	else:
+		do_spotted_anim = false
+		exclaim_sprite.hide()
 	
 
 func make_path() -> void:
@@ -23,3 +31,6 @@ func make_path() -> void:
 func _on_timer_timeout():
 	# make a path every _ seconds
 	make_path() 
+
+func animate_exclaimation():
+	exclaim_sprite.play("default")
