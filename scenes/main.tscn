@@ -4542,14 +4542,14 @@ unique_name_in_owner = true
 script = ExtResource("13_s6rsq")
 
 [node name="Ambience_forest" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_awelm")
-volume_db = -15.0
+stream = ExtResource("16_jhnao")
+volume_db = 15.0
 pitch_scale = 0.32
 autoplay = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_jhnao")
-volume_db = 4.7
+stream = ExtResource("14_awelm")
+volume_db = -37.0
 pitch_scale = 0.32
 autoplay = true
 
