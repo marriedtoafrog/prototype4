@@ -4547,7 +4547,7 @@ autoplay = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_jhnao")
-volume_db = 4.8
+volume_db = 4.7
 pitch_scale = 0.32
 autoplay = true
 
