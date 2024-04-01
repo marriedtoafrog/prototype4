@@ -42,5 +42,5 @@ func pick_new_state():
 		
 func play_grass_footstep():
 	#grass_footstep.pitch_scale = randf_range(-0.8, 1)
-	grass_footstep.volume_db = randf_range(-20,-18)
+	grass_footstep.volume_db = randf_range(-10,-5)
 	grass_footstep.play()

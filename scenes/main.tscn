@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ccxwiqda5qa2f"]
+[gd_scene load_steps=39 format=3 uid="uid://ccxwiqda5qa2f"]
 
 [ext_resource type="Texture2D" uid="uid://oill8hfxlv4" path="res://assets/TX Tileset Grass.png" id="1_q0002"]
 [ext_resource type="Texture2D" uid="uid://l0xe4t7v8hg1" path="res://assets/TX Tileset Stone Ground.png" id="2_4oikp"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/game manager.gd" id="13_s6rsq"]
 [ext_resource type="AudioStream" uid="uid://cy52vds3yar80" path="res://assets/sounds/coinPickup.mp3" id="14_5pcy4"]
 [ext_resource type="AudioStream" uid="uid://cxd3s8fgsqp2v" path="res://assets/sounds/bgsound.ogg" id="14_awelm"]
+[ext_resource type="AudioStream" uid="uid://biun6ogy23jpc" path="res://assets/sounds/ambience.ogg" id="16_jhnao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_otef8"]
 texture = ExtResource("8_hsmmk")
@@ -4485,8 +4486,14 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 script = ExtResource("13_s6rsq")
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+[node name="Ambience_forest" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_awelm")
-volume_db = -14.674
+volume_db = -29.684
+pitch_scale = 0.32
+autoplay = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_jhnao")
+volume_db = -29.684
 pitch_scale = 0.32
 autoplay = true

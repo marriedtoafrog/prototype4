@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/main_character.gd" id="1_aywx3"]
 [ext_resource type="Texture2D" uid="uid://b206fmnkbadey" path="res://assets/Basic Charakter Spritesheet.png" id="1_vfilp"]
 [ext_resource type="Texture2D" uid="uid://c4ar4lmw1r5md" path="res://assets/light.png" id="3_ny5nk"]
-[ext_resource type="AudioStream" uid="uid://bvnfc704gj6gf" path="res://assets/sounds/Footsteps/Grass/GRASS - Walk 1.wav" id="4_y5gb7"]
+[ext_resource type="AudioStream" uid="uid://drrsv3xblg8by" path="res://assets/sounds/Footsteps/grass_footstep.wav" id="4_avflb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xt5oj"]
 
@@ -318,6 +318,6 @@ texture = ExtResource("3_ny5nk")
 texture_scale = 0.7
 
 [node name="GrassFootstep" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_y5gb7")
+stream = ExtResource("4_avflb")
 volume_db = -20.0
 pitch_scale = 0.99
