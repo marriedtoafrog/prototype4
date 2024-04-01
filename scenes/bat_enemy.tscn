@@ -463,9 +463,11 @@ frame = 5
 frame_progress = 1.0
 
 [node name="QuestionMark" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.76837e-07, -27)
-scale = Vector2(2.89286, 2.65179)
+texture_filter = 1
+position = Vector2(0, -28)
+scale = Vector2(1.36161, 1.31585)
 sprite_frames = SubResource("SpriteFrames_vy4t1")
+frame_progress = 0.413691
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -477,7 +479,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="SuspicionTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.5
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true

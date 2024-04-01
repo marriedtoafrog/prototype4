@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cmj8dce4mqodh" path="res://scenes/bat_enemy.tscn" id="11_epacx"]
 [ext_resource type="PackedScene" uid="uid://dljydq6sd5ysp" path="res://scenes/jem_1.tscn" id="11_tlh1k"]
 [ext_resource type="PackedScene" uid="uid://c0ql2o3ijstj5" path="res://scenes/blue_jem.tscn" id="12_a3lvh"]
+[ext_resource type="AudioStream" uid="uid://ldx5lnu4goo5" path="res://assets/sounds/new-coinPickup.wav" id="12_vuy1s"]
 [ext_resource type="Script" path="res://scenes/game manager.gd" id="13_s6rsq"]
-[ext_resource type="AudioStream" uid="uid://cy52vds3yar80" path="res://assets/sounds/coinPickup.mp3" id="14_5pcy4"]
 [ext_resource type="AudioStream" uid="uid://cxd3s8fgsqp2v" path="res://assets/sounds/bgsound.ogg" id="14_awelm"]
 [ext_resource type="AudioStream" uid="uid://biun6ogy23jpc" path="res://assets/sounds/ambience.ogg" id="16_jhnao"]
 [ext_resource type="Texture2D" uid="uid://b7bun82royf4y" path="res://assets/exclamation-7x8.png" id="17_5eglx"]
@@ -4417,6 +4417,7 @@ y_sort_enabled = true
 position = Vector2(-112, -660)
 
 [node name="Camera2D" type="Camera2D" parent="main character"]
+zoom = Vector2(3, 3)
 
 [node name="map darker" type="CanvasModulate" parent="."]
 color = Color(0.223529, 0.223529, 0.223529, 1)
@@ -4428,6 +4429,7 @@ motion_mode = 1
 wander_change = 5.0
 player = NodePath("../main character")
 trigger_distance = 200.0
+earshot_radius = 300.0
 
 [node name="collectable code" type="Node" parent="."]
 
@@ -4455,7 +4457,8 @@ position = Vector2(357, 1025)
 position = Vector2(-1029, 1552)
 
 [node name="GemNoise" type="AudioStreamPlayer" parent="collectable code/purple gem"]
-stream = ExtResource("14_5pcy4")
+stream = ExtResource("12_vuy1s")
+volume_db = -3.0
 
 [node name="blue gem" type="Node" parent="collectable code"]
 
@@ -4481,7 +4484,8 @@ position = Vector2(-581, -456)
 position = Vector2(-815, 787)
 
 [node name="GemNoise" type="AudioStreamPlayer" parent="collectable code/blue gem"]
-stream = ExtResource("14_5pcy4")
+stream = ExtResource("12_vuy1s")
+volume_db = -3.0
 
 [node name="blue gem label" type="CanvasLayer" parent="collectable code"]
 
@@ -4538,14 +4542,14 @@ unique_name_in_owner = true
 script = ExtResource("13_s6rsq")
 
 [node name="Ambience_forest" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_awelm")
-volume_db = -29.684
+stream = ExtResource("16_jhnao")
+volume_db = 15.0
 pitch_scale = 0.32
 autoplay = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_jhnao")
-volume_db = 4.7
+stream = ExtResource("14_awelm")
+volume_db = -37.0
 pitch_scale = 0.32
 autoplay = true
 
