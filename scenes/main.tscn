@@ -4417,6 +4417,7 @@ y_sort_enabled = true
 position = Vector2(-48, -282)
 
 [node name="Camera2D" type="Camera2D" parent="main character"]
+zoom = Vector2(3, 3)
 
 [node name="map darker" type="CanvasModulate" parent="."]
 color = Color(0.223529, 0.223529, 0.223529, 1)
@@ -4428,6 +4429,7 @@ motion_mode = 1
 wander_change = 5.0
 player = NodePath("../main character")
 trigger_distance = 200.0
+earshot_radius = 300.0
 
 [node name="collectable code" type="Node" parent="."]
 
