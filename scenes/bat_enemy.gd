@@ -15,14 +15,14 @@ var change_wander_dir = false
 
 @onready var suspicion_timer := $SuspicionTimer as Timer
 
-# When the player is within range, the bat chases the player no matter what
+# When the player is within range, bat STARTS chasing
 @export var trigger_distance: float
 
 # if the player makes a noise within this radius, the bat will investigate noise
 @export var earshot_radius: float
 
-# should we play exclaimation?
-var did_spotted_anim = false 
+# is the bat currently pursuing the player (! anim has been played)
+var is_chasing = false 
 
 # this flag should be true if the player is out of distance range but making noise.
 var is_suspicious = false;
@@ -35,15 +35,12 @@ func _physics_process(_delta:float) -> void:
 	var speed
 	
 	is_suspicious = get_enemy_suspicion()
-	
+	is_chasing = get_enemy_chase_status()
+				
 	# chase if in range
-	if (nav_agent.distance_to_target() <= trigger_distance):
+	if (is_chasing):
 		dir = to_local(nav_agent.get_next_path_position()).normalized()
 		speed = chase_speed
-		if (!did_spotted_anim):
-			# if we haven't shown the surprise anim yet, do it.
-			animate_spotted()
-			
 		
 	# investigate if suspicious
 	elif (is_suspicious):	
@@ -51,7 +48,7 @@ func _physics_process(_delta:float) -> void:
 		animate_suspicious()
 		dir = to_local(nav_agent.get_next_path_position()).normalized()
 		speed = investigate_speed
-		did_spotted_anim = false
+		is_chasing = false
 	else:
 		
 		speed = wander_speed
@@ -63,7 +60,7 @@ func _physics_process(_delta:float) -> void:
 			change_wander_dir = false
 			
 		dir = wandering_dir.normalized()
-		did_spotted_anim = false
+		is_chasing = false
 		
 
 	velocity = dir * speed
@@ -105,17 +102,31 @@ func get_enemy_suspicion() -> bool:
 	var is_not_seen: bool = nav_agent.distance_to_target() > trigger_distance
 	return  has_nonzero_input && is_within_earshot && is_not_seen
 
+
+func get_enemy_chase_status() -> bool:
+	# if already chasing, then chase radius increases
+	var chase_boost = 50 if is_chasing else 0
+	
+	# if not currently chasing but in range, do ! anim
+	if ( !is_chasing && nav_agent.distance_to_target() <= trigger_distance ):
+		animate_spotted()
+		
+	return nav_agent.distance_to_target() <= trigger_distance + chase_boost 
+ 
+	
 ### REACTION SPRITE ANIMATIONS ###
 func animate_spotted():
+	question_sprite.hide()
 	exclaim_sprite.show()	
 	exclaim_sprite.play("default")
-	did_spotted_anim = true
+	is_chasing = true
 
 func _on_exclaimation_mark_animation_finished():
 	exclaim_sprite.hide()
 
 func animate_suspicious():
 	question_sprite.show()
+	exclaim_sprite.hide()
 	question_sprite.play("default")
 	is_suspicious = true
 	suspicion_timer.start()
